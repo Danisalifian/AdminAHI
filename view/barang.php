@@ -5,7 +5,7 @@
 	if (!isset($_SESSION['uname'])) {
 		echo '<script>window.alert("Maaf, Anda harus login dahulu!");window.location=("../index.php");</script>';				
 	} else {
-		include("../controllers/customerControllers.php");
+		include("../controllers/barangControllers.php");
 	}
 ?>
 <!DOCTYPE html>
@@ -44,14 +44,14 @@
 				          <span aria-hidden="true">&times;</span>
 				        </button>
 				      </div>
-				      <form id="frmBarang" method="POST" action="../controllers/customerControllers.php">
+				      <form id="frmBarang" method="POST" action="../controllers/barangControllers.php">
 				      <div class="modal-body">				      
 			      		<div class="row">
     						<div class="col-sm-4 pt-2">
     							<label>Id Barang </label>
     						</div>
     						<div class="col">
-        						<input type="number" name="mIdb" class="form-control" placeholder="Id Barang" required>
+        						<input type="text" name="mIdb" class="form-control" placeholder="Id Barang" required>
     						</div>
     					</div>
     					<div class="row pt-2">
@@ -77,6 +77,7 @@
     						<div class="col">
         						<input type="number" name="mharga" class="form-control" placeholder="Harga Barang" required>
     						</div>
+    					</div>
     						<div class="row pt-2">
     						<div class="col-sm-4 pt-2">
     							<label>Stock</label>
@@ -106,22 +107,23 @@
 	            			<h6 class="m-0">Daftar Barang</h6>
 	            		</div>
 	            		<div class="card-body pt-2 p-2">
-	            			<table id="tabel_customer" class="table table-striped table-bordered mb-0">
+	            			<table id="tabel_barang" class="table table-striped table-bordered mb-0">
 					        <thead class="bg-light">
 					            <th scope="col" class="border-0">Id Barang</th>
 		                        <th scope="col" class="border-0">Nama Barang</th>
 		                        <th scope="col" class="border-0">Detail</th>
 		                        <th scope="col" class="border-0">Harga</th>
 		                        <th scope="col" class="border-0">Stok Barang</th>
+		                        <th scope="col" class="border-0">Aksi</th>
 					        </thead>
 					        <tbody>
-					        <?php while($fetchCustomer=mysqli_fetch_array($getData)){ ?>
+					        <?php while($fetchBarang=mysqli_fetch_array($getData)){ ?>
 					            <tr>
-					                <td><?= $fetchCustomer["id_barang"] ?></td>
-			                        <td><?= $fetchCustomer["nama"] ?></td>
-			                        <td><?= $fetchCustomer["detail"] ?></td>
-			                        <td><?= $fetchCustomer["harga"] ?></td>
-			                        <td><?= $fetchCustomer["stock_barang"] ?></td>
+					                <td><?= $fetchBarang["id_barang"] ?></td>
+			                        <td><?= $fetchBarang["nama_barang"] ?></td>
+			                        <td><?= $fetchBarang["detail"] ?></td>
+			                        <td><?= $fetchBarang["harga"] ?></td>
+			                        <td><?= $fetchBarang["stok_barang"] ?></td>
 			                        <td>
 			                        	<!-- Info Barang -->
 			                        	<button type="button" class="btn btn-sm btn-outline-info"><i class="material-icons" data-toggle="modal" data-target="#Info<?= $fetchBarang["id_barang"]?>">info</i></button>
@@ -150,7 +152,7 @@
 						    							<label>Nama</label>
 						    						</div>
 						    						<div class="col">
-						        						<input type="text" name="INama" class="form-control" value="<?= $fetchBarang["nama"] ?>" disabled>
+						        						<input type="text" name="INama" class="form-control" value="<?= $fetchBarang["nama_barang"] ?>" disabled>
 						    						</div>
 						    					</div>
 						    					<div class="row pt-2">
@@ -176,24 +178,23 @@
 						    							<label>Stock</label>
 						    						</div>
 						    						<div class="col">
-						        						<input type="number" name="Istock" class="form-control" value="<?= $fetchBarang["stock_barang"] ?>" disabled>
+						        						<input type="number" name="Istock" class="form-control" value="<?= $fetchBarang["stok_barang"] ?>" disabled>
 						    						</div>
 						    					</div>
 						    		
 						
 											    </div>
 											    <div class="modal-footer">
-											        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-											        <button type="submit" class="btn btn-primary" name="btnUbah">Perbarui</button> -->
+											        
 											    </div>
 										      </form>
 										    </div>
 										  </div>
 										</div>
 										<!-- End Modal Info -->
-			                        	<!-- Ubah data customer -->
+			                        	<!-- Ubah data barang -->
 			                        	<button type="button" name="btnKUbah" class="btn btn-sm btn-outline-info"><i class="material-icons" data-toggle="modal" data-target="#Ubah<?= $fetchBarang["id_barang"]?>">edit</i></button>
-			                        	<!-- Modal Ubah data Info Customer -->
+			                        	<!-- Modal Ubah data Info barang -->
 										<div class="modal fade" id="Ubah<?= $fetchBarang["id_barang"] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 										  <div class="modal-dialog" role="document">
 										    <div class="modal-content">
@@ -203,15 +204,15 @@
 										          <span aria-hidden="true">&times;</span>
 										        </button>
 										      </div>
-										      <form id="frmCust" method="POST" action="../controllers/customerControllers.php">
+										      <form id="frmCust" method="POST" action="../controllers/barangControllers.php">
 										      <div class="modal-body">				      
 									      		<div class="row">
 						    						<div class="col-sm-3">
 						    							<label>Nama</label>
 						    						</div>
 						    						<div class="col">
-						    							<input type="hidden" name="UKtp" value="<?= $fetchCustomer["no_ktp"] ?>">
-						        						<input type="text" name="UNama" class="form-control" required value="<?= $fetchCustomer["nama"] ?>">
+						    							<input type="hidden" name="UIdb" value="<?= $fetchBarang["id_barang"] ?>">
+						        						<input type="text" name="UNama" class="form-control" required value="<?= $fetchBarang["nama_barang"] ?>">
 						    						</div>
 						    					</div>						    					
 						    					<div class="row pt-2">
@@ -219,7 +220,7 @@
 						    							<label>Detail</label>
 						    						</div>
 						    						<div class="col">
-						        						<input type="text" name="UDetail" class="form-control" value="<?= $fetchBarang["detail"] ?>">
+						        						<input type="text" name="Udetail" class="form-control" value="<?= $fetchBarang["detail"] ?>">
 						    						</div>
 						    					</div>
 
@@ -228,7 +229,7 @@
 						    							<label>Harga</label>
 						    						</div>
 						    						<div class="col">
-						        						<input type="number" name="UHarga" class="form-control" value="<?= $fetchBarang["harga"] ?>">
+						        						<input type="number" name="Uharga" class="form-control" value="<?= $fetchBarang["harga"] ?>">
 						    						</div>
 						    					</div>
 						    					
@@ -237,11 +238,12 @@
 						    							<label>Stock</label>
 						    						</div>
 						    						<div class="col">
-						        						<input type="text" name="UStock" class="form-control" value="<?= $fetchBarang["stock_barang"] ?>">
+						        						<input type="text" name="UStock" class="form-control" value="<?= $fetchBarang["stok_barang"] ?>">
 						    						</div>
 						    					</div>
 
 											    </div>
+
 											    <div class="modal-footer">
 											        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
 											        <button type="submit" class="btn btn-primary" name="btnUbah">Perbarui</button>
@@ -251,10 +253,10 @@
 										  </div>
 										</div>
 										<!-- End Modal Ubah Data Barang -->
-										<!-- Hapus data customer -->
+										<!-- Hapus data barang -->
 			                          	<button type="button" class="btn btn-sm btn-outline-danger"><i class="material-icons" data-toggle="modal" data-target="#hapus<?=$fetchBarang["id_barang"]?>">delete</i></button>
 			                          	<!-- Modal dialog hapus -->
-										<form id="hapusCust" method="POST" action="../controllers/customerControllers.php">
+										<form id="hapusCust" method="POST" action="../controllers/barangControllers.php">
 										<div class="modal fade" id="hapus<?=$fetchBarang["id_barang"]?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 										  <div class="modal-dialog" role="document">
 										    <div class="modal-content">				    
@@ -265,8 +267,8 @@
 										        </button>
 										      </div>
 										      <div class="modal-body text-danger">
-										      	<input type="hidden" name="hapus_cust" value="<?=$fetchCustomer["no_ktp"]?>">
-										        Anda yakin akan menghapus data customer <?=$fetchCustomer["nama"]?> ?
+										      	<input type="hidden" name="hapus_cust" value="<?=$fetchBarang["id_barang"]?>">
+										        Anda yakin akan menghapus data barang <?=$fetchBarang["nama_barang"]?> ?
 										      </div>
 										      <div class="modal-footer">
 										        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
@@ -283,11 +285,12 @@
 					        </tbody>
 					        <tfoot>
 					            <tr>
-						            <td><?= $fetchCustomer["id_barang"] ?></td>
-			                        <td><?= $fetchCustomer["nama"] ?></td>
-			                        <td><?= $fetchCustomer["detail"] ?></td>
-			                        <td><?= $fetchCustomer["harga"] ?></td>
-			                        <td><?= $fetchCustomer["stock_barang"] ?></td>
+						            <th scope="col" class="border-0">Id Barang</th>
+			                        <th scope="col" class="border-0">Nama</th>
+			                        <th scope="col" class="border-0">Detail</th>
+			                        <th scope="col" class="border-0">Harga</th>
+			                        <th scope="col" class="border-0">Stok</th>
+			                        <th scope="col" class="border-0">Aksi</th>
 					            </tr>
 					        </tfoot>
 					    </table>
@@ -319,7 +322,7 @@
 
 	<script type="text/javascript" class="init">	
 		$(document).ready(function() {
-			$('#tabel_customer').DataTable();
+			$('#tabel_barang').DataTable();
 		} );
 
 	</script>
