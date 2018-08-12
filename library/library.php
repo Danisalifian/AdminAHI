@@ -45,7 +45,7 @@
 	                </a>
 	              </li>
 	              <li class='nav-item'>
-	                <a class='nav-link' href='kendaraan.php'>
+	                <a class='nav-link' href='barang.php'>
 	                  <i class='material-icons'>commute</i>
 	                  <span>Data Barang</span>
 	                </a>
