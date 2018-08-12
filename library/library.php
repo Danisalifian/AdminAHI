@@ -4,7 +4,7 @@
 		echo "<head>
 		<meta charset='utf-8'>
 		<meta http-equiv='x-ua-compatible' content='ie=edge'>
-		<title>D'RentCar | Admin Dashboard</title>
+		<title>AHI | AHI Dashboard</title>
 		<meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
 		<link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
 		<link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
@@ -28,7 +28,7 @@
 	              <a class='navbar-brand w-100 mr-0' href='dashboard.php' style='line-height: 25px;'>
 	                <div class='d-table m-auto'>
 	                  <img id='main-logo' class='d-inline-block align-top mr-1' style='max-width: 25px;' src='../adm-styles/assets/shards-dashboards-logo.svg' alt='Shards Dashboard'>
-	                  <span class='d-none d-md-inline ml-1'>D'RentCar Dashboard</span>
+	                  <span class='d-none d-md-inline ml-1'>AHI Dashboard</span>
 	                </div>
 	              </a>
 	              <a class='toggle-sidebar d-sm-inline d-md-none d-lg-none'>
@@ -47,31 +47,19 @@
 	              <li class='nav-item'>
 	                <a class='nav-link' href='kendaraan.php'>
 	                  <i class='material-icons'>commute</i>
-	                  <span>Data Kendaraan</span>
+	                  <span>Data Barang</span>
 	                </a>
 	              </li>
 	              <li class='nav-item'>
 	                <a class='nav-link ' href='customer.php'>
 	                  <i class='material-icons'>people</i>
-	                  <span>Data Customer</span>
+	                  <span>Pemesanan </span>
 	                </a>
 	              </li>
 	              <li class='nav-item'>
 	                <a class='nav-link ' href='pembayaran.php'>
 	                  <i class='material-icons'>attach_money</i>
-	                  <span>Data Pembayaran</span>
-	                </a>
-	              </li>
-	              <li class='nav-item'>
-	                <a class='nav-link ' href='penyewaan.php'>
-	                  <i class='material-icons'>assignment_turned_in</i>
-	                  <span>Data Penyewaan</span>
-	                </a>
-	              </li>
-	              <li class='nav-item'>
-	                <a class='nav-link ' href='pengembalian.php'>
-	                  <i class='material-icons'>assignment_returned</i>
-	                  <span>Data Pengembalian</span>
+	                  <span>Pembayaran</span>
 	                </a>
 	              </li>
 	            </ul>

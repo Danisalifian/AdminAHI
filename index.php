@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>D'RentCar | Admin Dashboard</title>
+		<title>AHI | Admin Dashboard</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -19,7 +19,7 @@
 		<div class="col-md-4 offset-md-4">
 			<div class="card card-small">
 				<div class="card-header border-bottom">
-					<h4 class="m-0 text-center">D'RentCar</h4>
+					<h4 class="m-0 text-center">AHI</h4>
 				</div>	
 				<div class="card-body">
 					<form id="frmLogin" method="POST" action="controllers/loginControllers.php">
@@ -83,8 +83,6 @@
 	            tr[i].style.display = "";
 	          } else {
 	            tr[i].style.display = "none";
-	            // document.write("<div><strong>Maaf.</strong> Data tidak ditemukan</div>");
-	            // tr[i].innerHTML = "<div><strong>Maaf.</strong> Data tidak ditemukan</div>";
 	          }
 	        }       
 	      }
