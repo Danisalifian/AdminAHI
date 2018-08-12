@@ -13,17 +13,17 @@
 
 		$fetchUser = mysqli_fetch_array($getUser);
 
-		$count = "select * from penyewaan";
+		$count = "select * from users";
 		$Jml = mysqli_query($link,$count);
 		$jumlah = mysqli_num_rows($Jml);
-
+/*
 		$Mcount = "select * from kendaraan";
 		$Mjml = mysqli_query($link,$Mcount);
 		$Kendjml = mysqli_num_rows($Mjml);
 
 		$Ccount = "select * from customer";
 		$Cjml = mysqli_query($link,$Ccount);
-		$Custjml = mysqli_num_rows($Cjml);	
+		$Custjml = mysqli_num_rows($Cjml); */	
 	}
 ?>
 <!DOCTYPE html>
@@ -54,7 +54,7 @@
 		                  <div class="card-body p-0 d-flex">
 		                    <div class="d-flex flex-column m-auto">
 		                      <div class="stats-small__data text-center">
-		                        <span class="stats-small__label text-uppercase">Jumlah Penyewaan</span>
+		                        <span class="stats-small__label text-uppercase">User</span>
 		                        <h6 class="stats-small__value count my-3"><?php echo "$jumlah"; ?></h6>
 		                      </div>
 		                      <div class="stats-small__data">
@@ -70,7 +70,7 @@
 		                  <div class="card-body p-0 d-flex">
 		                    <div class="d-flex flex-column m-auto">
 		                      <div class="stats-small__data text-center">
-		                        <span class="stats-small__label text-uppercase">Jumlah Kendaraan</span>
+		                        <span class="stats-small__label text-uppercase">Jumlah Order</span>
 		                        <h6 class="stats-small__value count my-3"><?php echo "$Kendjml"; ?></h6>
 		                      </div>
 		                      <div class="stats-small__data">

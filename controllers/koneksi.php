@@ -3,7 +3,7 @@
 		$host = "127.0.0.1";
 		$username = "root";
 		$password = "";
-		$database = "10115352_travel";
+		$database = "ahi_order";
 		$link = mysqli_connect($host, $username, $password, $database);
 
 		if (!$link) {
